@@ -36,10 +36,11 @@ for (let i = 0; i < entrepreneurs.length; i++){
     delete entrepreneurs[i].first;
     delete entrepreneurs[i].last;
 }
-
-
-
-
-
 console.log(entrepreneurs);
+
+for (let i = 0; i < entrepreneurs.length; i++){
+   if(entrepreneurs[i].age <= 52 && entrepreneurs[i].age >= 42){
+
+    console.log(entrepreneurs[i]);}
+}
 
