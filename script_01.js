@@ -26,3 +26,20 @@ for (let i = 0; i < entrepreneurs.length; i++){
     firstName[i] = entrepreneurs[i].first;
 }
 console.log(firstName);
+const currentYear = new Date().getFullYear();
+console.log(currentYear);
+for (let i = 0; i < entrepreneurs.length; i++){
+    entrepreneurs[i].firstName = entrepreneurs[i].first;
+    entrepreneurs[i].lastName = entrepreneurs[i].last;
+    entrepreneurs[i].age = currentYear - entrepreneurs[i].year;
+    delete entrepreneurs[i].year;
+    delete entrepreneurs[i].first;
+    delete entrepreneurs[i].last;
+}
+
+
+
+
+
+console.log(entrepreneurs);
+
