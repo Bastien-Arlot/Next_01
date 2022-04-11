@@ -55519,8 +55519,6 @@ for (let i = 0; i < users.length; i++){
     sum += users[i].revenue;
 };
 
-console.log(sum);
-console.log(users.length);
 console.log(`the average turnover is ${(sum/users.length)/100} euros `);
 //
 // for (let i =0; i < users.length; i++){
@@ -55547,4 +55545,39 @@ let sumPositiveUser = 0;
 for (let i = 0; i < positiveUser.length; i++){
     sumPositiveUser += positiveUser[i].revenue;
 }
-console.log(`the average turnover for users with positive revenues is ${sumPositiveUser/positiveUser.length}`);
+console.log(`the average turnover for users with positive revenues is ${(sumPositiveUser/positiveUser.length)/100} euros`);
+
+console.log(`In total we won ${sumPositiveUser/100} euros`);
+const usersInFrance = users.filter( user => user.country === "France");
+console.log(`We have ${usersInFrance.length} users in France`);
+const usersInFranceWithRevenue = positiveUser.filter(user => user.country === "France");
+console.log(`We have ${usersInFranceWithRevenue.length} users with revenue in France`);
+
+let sumInFrance = 0;
+for(let i =0; i < usersInFrance.length; i++){
+    sumInFrance += usersInFrance[i].revenue;
+};
+console.log(`In France the total turnover is ${sumInFrance/100} euros`);
+
+const usersInGermany = users.filter(user => user.country === "Germany");
+let sumInGermany = 0;
+for(let i = 0; i < usersInGermany.length; i++){
+    sumInGermany += usersInGermany[i].revenue;
+
+}
+console.log(`In Germany the total turnover is ${sumInGermany/100} euros`);
+
+const usersInUSA = users.filter(user => user.country === "United States");
+let sumInUSA = 0;
+for(let i=0; i < usersInUSA.length; i++){
+    sumInUSA += usersInUSA[i].revenue;
+};
+console.log(`In USA the total turnover is ${sumInUSA/100} euros`);
+
+const usersInEngland = users.filter(user => user.country === "Great Britain");
+let sumInEngland = 0;
+
+for(let i = 0; i < usersInEngland.length; i++){
+    sumInEngland += usersInEngland[i].revenue;
+};
+console.log(`In England the total turnover is ${sumInEngland/100} euros`);
