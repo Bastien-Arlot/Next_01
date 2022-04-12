@@ -44,6 +44,8 @@ const checkLoto = (firstName, lastName, email, lotoNumbers) => {
         return false;
     } else {
         alert("Félicitations vous avez gagné 1 million !!!!!");
+        let audio = new Audio(src='https://www.youtube.com/watch?v=wDOQgl4kMbw');
+        audio.play();
     }
 };
 
