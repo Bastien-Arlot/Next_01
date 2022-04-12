@@ -12,22 +12,15 @@ const books = [
     {title: 'Voyage au centre de la Terre', id: 4656388, rented: 38},
     {title: 'Guerre et Paix', id: 748147, rented: 19}
 ];
-console.log('The titles of our books in our CDI are');
-for (let i = 0; i < books.length; i++) {
-    console.log(books[i].title);
-}
+console.log(`The titles of our books in our CDI are:  ${books.map(book => book.title).join(", ")}`)
+
+
 books.sort((a, b) => (a.rented > b.rented) ? 1 : ((b.rented > a.rented) ? -1 : 0));
 console.log(`The book which has been the more rented is ${books[books.length - 1].title}`);
 console.log(`the book which has been the less rented is ${books[0].title}`);
 
-for (let i = 0; i < books.length; i++) {
-    if (books[i].id === 133712) {
-        console.log(`${books[i].title} will be deleted`);
-        delete books[i];
-        console.log("the books with the id of 133712 has been deleted");
-    }
-    ;
-}
-;
+
+books.splice(books.findIndex(book => {return book.id == 133712}), 1);
+
 
 console.table(books);
