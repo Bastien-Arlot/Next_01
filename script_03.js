@@ -55512,40 +55512,21 @@ const users = [
     }
 ]
 
-let sum = 0;
 
-for (let i = 0; i < users.length; i++) {
+const sum = users.reduce((sum, user) => sum + user.revenue, 0);
 
-    sum += users[i].revenue;
-}
-;
+
+console.log(sum);
 
 console.log(`the average turnover is ${(sum / users.length) / 100} euros `);
-//
-// for (let i =0; i < users.length; i++){
-//     if(users[i].revenue > 1 ){
-//         positiveUser[i] = users[i];
-//         // console.log(positiveUser.length);
-//         // console.log(positiveUser);
-//         // console.log(users[i]);
-//     }
-// }
-// let i = 0;
-//
-// while (i < users.length){
-//     if(users[i].revenue > 0){
-//         positiveUser[i] = users[i];
-//     }
-//     i++;
-// };
+
+
 
 
 const positiveUser = users.filter(user => user.revenue > 0);
 console.log(`The percentage of users with positive revenues are ${positiveUser.length * 100 / users.length}`);
-let sumPositiveUser = 0;
-for (let i = 0; i < positiveUser.length; i++) {
-    sumPositiveUser += positiveUser[i].revenue;
-}
+//
+const sumPositiveUser = positiveUser.reduce((sum, user) => sum + user.revenue, 0);
 console.log(`the average turnover for users with positive revenues is ${(sumPositiveUser / positiveUser.length) / 100} euros`);
 
 console.log(`In total we won ${sumPositiveUser / 100} euros`);
@@ -55554,36 +55535,23 @@ console.log(`We have ${usersInFrance.length} users in France`);
 const usersInFranceWithRevenue = positiveUser.filter(user => user.country === "France");
 console.log(`We have ${usersInFranceWithRevenue.length} users with revenue in France`);
 
-let sumInFrance = 0;
-for (let i = 0; i < usersInFrance.length; i++) {
-    sumInFrance += usersInFrance[i].revenue;
-}
-;
+
+const sumInFrance = usersInFrance.reduce((sum , user) => sum + user.revenue, 0);
 console.log(`In France the total turnover is ${sumInFrance / 100} euros`);
 
 const usersInGermany = users.filter(user => user.country === "Germany");
-let sumInGermany = 0;
-for (let i = 0; i < usersInGermany.length; i++) {
-    sumInGermany += usersInGermany[i].revenue;
 
-}
+const sumInGermany = usersInGermany.reduce((sum, user) => sum + user.revenue, 0);
 console.log(`In Germany the total turnover is ${sumInGermany / 100} euros`);
 
 const usersInUSA = users.filter(user => user.country === "United States");
-let sumInUSA = 0;
-for (let i = 0; i < usersInUSA.length; i++) {
-    sumInUSA += usersInUSA[i].revenue;
-}
-;
+
+const sumInUSA = usersInUSA.reduce((sum, user) => sum + user.revenue, 0);
 console.log(`In USA the total turnover is ${sumInUSA / 100} euros`);
 
 const usersInEngland = users.filter(user => user.country === "Great Britain");
-let sumInEngland = 0;
 
-for (let i = 0; i < usersInEngland.length; i++) {
-    sumInEngland += usersInEngland[i].revenue;
-}
-;
+const sumInEngland = usersInEngland.reduce((sum, user) => sum + user.revenue, 0);
 console.log(`In England the total turnover is ${sumInEngland / 100} euros`);
 
 const countries = new Set();
@@ -55603,25 +55571,17 @@ console.table(topUsers);
 
 const femaleUsers = users.filter(user => user.sex === "F");
 const maleUsers = users.filter(user => user.sex === "M");
-let femaleSum = 0;
-let maleSum = 0;
-for (let i = 0; i < femaleUsers.length; i++) {
-    femaleSum += femaleUsers[i].revenue;
-}
-;
-for (let i = 0; i < maleUsers.length; i++) {
-    maleSum += maleUsers[i].revenue;
-}
-;
+
+const femaleSum = femaleUsers.reduce((sum, user) => sum + user.revenue, 0);
+
+const maleSum = maleUsers.reduce((sum, user) => sum + user.revenue, 0);
 femaleSum > maleSum ? console.log(`Our female users are earning us more with ${femaleSum / 100} euros`) : console.log(`Our male users are earning us more with ${maleSum / 100} euros`);
 
 const septanteCinqUser = users.filter(user => user.revenue > 7500);
 console.log("Here is the list of our users who earned us more than 75 euros boss!")
 console.table(septanteCinqUser);
 
-const firstHundredCustomer = [];
-for (let i = 0; i < 100; i++) {
-    firstHundredCustomer[i] = users[i];
-}
+
+const firstHundredCustomer = users.filter(user => user.id <= 100);
 const premiumHundredUsers = firstHundredCustomer.filter(user => user.revenue > 0);
 console.log(`Boss in our 100 first users ${premiumHundredUsers.length / firstHundredCustomer.length * 100}% of them were earning us money!`);
