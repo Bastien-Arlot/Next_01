@@ -19,28 +19,15 @@ const entrepreneurs = [
     { first: 'Peter', last: 'Thiel', year: 1967 }
 ];
 
-const firstName = [];
-console.log(entrepreneurs.length);
 
-for (let i = 0; i < entrepreneurs.length; i++){
-    firstName[i] = entrepreneurs[i].first;
-}
+const firstName = entrepreneurs.map(user => user.first);
 console.log(firstName);
 const currentYear = new Date().getFullYear();
 console.log(currentYear);
-for (let i = 0; i < entrepreneurs.length; i++){
-    entrepreneurs[i].firstName = entrepreneurs[i].first;
-    entrepreneurs[i].lastName = entrepreneurs[i].last;
-    entrepreneurs[i].age = currentYear - entrepreneurs[i].year;
-    delete entrepreneurs[i].year;
-    delete entrepreneurs[i].first;
-    delete entrepreneurs[i].last;
-}
+
+entrepreneurs.map(entrepreneur => (entrepreneur.firstName = entrepreneur.first) && (delete entrepreneur.first) && (entrepreneur.lastName = entrepreneur.last) && (delete entrepreneur.last) &&  (entrepreneur.age = currentYear - entrepreneur.year) && (delete entrepreneur.year));
 console.log(entrepreneurs);
 
-for (let i = 0; i < entrepreneurs.length; i++){
-   if(entrepreneurs[i].age <= 52 && entrepreneurs[i].age >= 42){
 
-    console.log(entrepreneurs[i]);}
-}
+console.log(entrepreneurs.filter(entrepreneur => entrepreneur.age <= 52 && entrepreneur.age >= 42));
 
